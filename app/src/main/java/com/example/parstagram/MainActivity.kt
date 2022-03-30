@@ -12,7 +12,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.core.content.FileProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.*
 import java.io.File
 
@@ -51,6 +53,28 @@ class MainActivity : AppCompatActivity() {
             onLaunchCamera()
         }
 
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+            item ->
+
+            when(item.itemId) {
+                // TODO Navigate to the home screen
+                R.id.action_home -> {
+                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                }
+                // TODO Navigate to the compose screen
+                R.id.action_compose -> {
+                    Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
+                }
+                // TODO Navigate to the profile screen
+                R.id.action_profile -> {
+                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            //Return true to say that we've handled this user interaction on the item
+            true
+        }
+
 //        queryPosts()
     }
 
@@ -86,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                 val ivPreview: ImageView = findViewById(R.id.imageView)
                 ivPreview.setImageBitmap(takenImage)
             } else { // Result was a failure
-                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Picture wasn't taken!", LENGTH_SHORT).show()
             }
         }
     }
