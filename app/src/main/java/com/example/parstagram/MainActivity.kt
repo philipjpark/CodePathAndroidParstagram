@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.parstagram.fragments.ComposeFragment
 import com.example.parstagram.fragments.FeedFragment
+import com.example.parstagram.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.*
 import java.io.File
@@ -40,18 +41,16 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
 
                 R.id.action_home -> {
-                    // TODO Navigate to the home screen / Feed Fragment
                     fragmentToShow = FeedFragment()
-                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
                 }
-                // TODO Navigate to the compose screen
                 R.id.action_compose -> {
                     fragmentToShow = ComposeFragment()
                     //Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
                 }
-                // TODO Navigate to the profile screen
                 R.id.action_profile -> {
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                    fragmentToShow = ProfileFragment()
+                    //Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
                 }
             }
 

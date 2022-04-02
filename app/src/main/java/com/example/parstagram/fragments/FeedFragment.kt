@@ -16,7 +16,7 @@ import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
 
-class FeedFragment : Fragment() {
+open class FeedFragment : Fragment() {
 
     lateinit var postsRecyclerView: RecyclerView
 
@@ -53,7 +53,7 @@ class FeedFragment : Fragment() {
     }
 
     //Query for all posts in our server
-    fun queryPosts() {
+    open fun queryPosts() {
 
         //Specify which class is empty
         val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
@@ -63,7 +63,7 @@ class FeedFragment : Fragment() {
         query.addDescendingOrder("createdAt")
 
         //only return the most recent 20 posts
-        
+
         query.findInBackground(object : FindCallback<Post> {
             override fun done(posts: MutableList<Post>?, e: ParseException?) {
                 if (e != null) {
