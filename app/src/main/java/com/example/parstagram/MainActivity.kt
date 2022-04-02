@@ -62,33 +62,11 @@ class MainActivity : AppCompatActivity() {
             //Return true to say that we've handled this user interaction on the item
             true
         }
-//        queryPosts()
 
         // Set default selection
         findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_home
-    }
 
-    //Query for all posts in our server
-    fun queryPosts() {
-
-        //Specify which class is empty
-        val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
-        //Find all the Post objects
-        query.include(Post.KEY_USER)
-        query.findInBackground(object : FindCallback<Post> {
-            override fun done(posts: MutableList<Post>?, e: ParseException?) {
-                if (e != null) {
-                    //Something has went wrong
-                    Log.e(TAG, "Error fetching posts")
-                } else {
-                    if (posts != null) {
-                        for (post in posts) {
-                            Log.i(TAG, "Post: " + post.getDescription() + " , username: " + post.getUser()?.username)
-                        }
-                    }
-                }
-            }
-        })
+        // queryPosts()
     }
 
     companion object {
